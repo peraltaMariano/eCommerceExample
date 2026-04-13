@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - El Panadero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<header>
+    <div class="logo-section">
+        <img src="logo.jpg" alt="El Panadero Logo">
+        <h1>El Panadero</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="criollitos.html">Criollitos</a></li>
+            <li><a href="medialunas.html">Medialunas</a></li>
+            <li><a href="panes.html">Panes</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="registro-section">
+        <div class="registro-container">
+            <h2>Registro</h2>
+            <form action="/register" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <button class="registro-button" type="submit">Registrarse</button>
+            </form>
+        </div>
+        Ya tenés una cuenta? <a href="login.html">Iniciá sesión aquí!</a>
+    </div>
+</body>
+
+</html>
