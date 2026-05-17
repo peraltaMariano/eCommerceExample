@@ -7,28 +7,13 @@
     <title>Registro - El Panadero</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<header>
-    <div class="logo-section">
-        <img src="logo.jpg" alt="El Panadero Logo">
-        <h1>El Panadero</h1>
-    </div>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="criollitos.html">Criollitos</a></li>
-            <li><a href="medialunas.html">Medialunas</a></li>
-            <li><a href="panes.html">Panes</a></li>
-        </ul>
-    </nav>
-</header>
-
 <body>
+    <div id="navbar-root"></div>
+
     <div class="login-section">
         <div class="login-container">
             <h2>Registro</h2>
-            <form action="/register" method="post">
+            <form onsubmit="handleRegister(event)">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
@@ -52,6 +37,9 @@
             ¿Ya tenés una cuenta? <a href="login.html">Iniciá sesión aquí!</a>
         </p>
     </div>
+
+    <script src="navbar.js"></script>
+    <script src="login.js"></script>
 </body>
 
 </html>

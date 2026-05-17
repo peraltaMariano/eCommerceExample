@@ -8,6 +8,7 @@ header{
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     height: 50px;
 
 }
@@ -25,6 +26,7 @@ header{
 }
 header ul {
     display: flex;
+    align-items: center;
     flex-direction: row;
     gap: 20px;
     list-style: none;
@@ -42,6 +44,24 @@ header ul a {
 header ul a:hover {
     background-color: rgb(216, 216, 216);
     border-radius: 5px;
+}
+
+#logoutBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    border-radius: 5px;
+}
+
+#logoutBtn img {
+    width: 22px;
+    height: 22px;
+    filter: brightness(0%);
+    display: block;
+}
+#logoutBtn:hover img {
+    filter: brightness(0%);
 }
 .login-section {
     display: flex;
@@ -121,22 +141,20 @@ header ul a:hover {
     text-align: left;
 }
 .product-section {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 30px;
-    justify-content: flex-start;
-    margin-left: 30px;
+    padding: 0 30px;
     margin-top: 60px;
 }
-.product-card {
-    width: 260px;
+    .product-card {
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     font-family: Arial, sans-serif;
-    margin-left: 30px;
+    text-align: left;
 }
 
 .product-card:hover {
@@ -156,29 +174,125 @@ header ul a:hover {
 }
 
 .product-card p {
-    margin: 0;
-    padding: 0 16px;
+    padding: 0 8px;
 }
 
 .product-name {
     font-size: 16px;
     font-weight: 600;
-    margin-top: 12px;
-    margin-bottom: 15px;
+    margin-top: 11px;
+    margin-bottom: 5px;
     color: #222;
 }
 
 .product-description {
     font-size: 14px;
     color: #777;
-    margin-top: 6px;
+    margin-top: 0;
+    margin-bottom: 18px;
 }
 
 .precio {
     font-size: 18px;
     font-weight: bold;
     color: #218c74;
-    margin: 12px 0 16px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.product-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px;
+    margin-bottom: 14px;
+}
+
+.qty-select {
+    width: 64px;
+    height: 32px;
+    border: 1px solid #b9b9b9;
+    border-radius: 4px;
+    background: #fff;
+    color: #222;
+    padding: 0 6px;
+}
+
+.add-button {
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    background-color: #218c74;
+    color: #fff;
+    font-weight: 600;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #1c7a66;
+}
+
+.add-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.add-modal-overlay.hidden {
+    display: none;
+}
+
+.add-modal {
+    width: min(420px, calc(100% - 24px));
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+}
+
+.add-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.add-modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1b1b1b;
+}
+
+.add-modal-close {
+    border: none;
+    background: transparent;
+    color: #333;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.add-modal-body {
+    padding: 18px 16px 20px;
+}
+
+.add-modal-item,
+.add-modal-qty {
+    margin: 0;
+    color: #1f1f1f;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.add-modal-item {
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 .registro-section {
     display: flex;

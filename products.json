@@ -1,0 +1,50 @@
+{
+	"criollitos": [
+		{
+			"image": "criollitos.png",
+			"alt": "Criollitos",
+			"name": "Criollitos comunes",
+			"description": "Criollitos recien horneados",
+			"price": "1kg · $2000"
+		},
+		{
+			"image": "",
+			"alt": "Sin imagen",
+			"name": "Card vacia",
+			"description": "",
+			"price": "1kg · $15000"
+		}
+	],
+	"medialunas": [
+		{
+			"image": "medialunas.png",
+			"alt": "Medialunas",
+			"name": "Medialunas comunes",
+			"description": "Las mejores medialunas de la ciudad.",
+			"price": "1 · $1500"
+		},
+		{
+			"image": "",
+			"alt": "Sin imagen",
+			"name": "Card vacia",
+			"description": "",
+			"price": "1kg · $15000"
+		}
+	],
+	"panes": [
+		{
+			"image": "PanFrances.png",
+			"alt": "Panes",
+			"name": "Pan Frances",
+			"description": "Tira de pan frances",
+			"price": "1kg · $2000"
+		},
+		{
+			"image": "",
+			"alt": "Sin imagen",
+			"name": "Card vacia",
+			"description": "",
+			"price": "1kg · $15000"
+		}
+	]
+}

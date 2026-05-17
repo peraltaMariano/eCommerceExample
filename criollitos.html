@@ -8,61 +8,16 @@
     <link rel="icon" href="logo.jpg">
     <link rel="stylesheet" href="styles.css">
 </head>
-<header>
-    <div class="logo-section">
-        <img src="logo.jpg" alt="El Panadero Logo">
-        <h1>El Panadero</h1>
-    </div>
+<body data-category="criollitos">
+    <div id="navbar-root"></div>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="criollitos.html">Criollitos</a></li>
-            <li><a href="medialunas.html">Medialunas</a></li>
-            <li><a href="panes.html">Panes</a></li>
-        </ul>
-    </nav>
-</header>
-
-<body>
     <div class="category-name">
         Criollitos
     </div>
-    <div class="product-section">
-        <div class="product-card">
-            <img class="thumbnail" src="criollitos.png" alt="Criollitos">
-
-            <p class="product-name">
-                Criollitos comunes
-            </p>
-
-            <p class="product-description">
-                Criollitos recién horneados
-            </p>
-
-            <p class="precio">
-                1kg · $2000
-            </p>
-        </div>
-        <div class="product-card">
-            <div class="image-container">
-
-            </div>
-
-            <p class="product-name">
-                Card vacia
-            </p>
-
-            <p class="product-description">
-
-            </p>
-
-            <p class="precio">
-                1kg · $15000
-            </p>
-        </div>
-    </div>
+    <div id="product-section-root" class="product-section"></div>
+    <script src="navbar.js"></script>
+    <script src="login.js"></script>
+    <script src="productCard.js"></script>
 </body>
 
 </html>
