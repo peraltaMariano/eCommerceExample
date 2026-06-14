@@ -1,50 +1,72 @@
 {
 	"criollitos": [
 		{
-			"image": "criollitos.png",
+			"image": "Imagenes/criollitos.png",
 			"alt": "Criollitos",
-			"name": "Criollitos comunes",
+			"name": "Criollitos comunes x kg",
 			"description": "Criollitos recien horneados",
-			"price": "1kg · $2000"
+			"price": "$3000"
 		},
 		{
-			"image": "",
-			"alt": "Sin imagen",
-			"name": "Card vacia",
+			"image": "Imagenes/criollitoHojaldre.webp",
+			"alt": "Criollitos Hojaldre",
+			"name": "Criollitos hojaldre x kg",
 			"description": "",
-			"price": "1kg · $15000"
+			"price": "$4000"
+		},
+		{
+			"image": "Imagenes/chipa.webp",
+			"alt": "Chipa",
+			"name": "Chipa x kg",
+			"description": "",
+			"price": "$4000"
 		}
 	],
 	"medialunas": [
 		{
-			"image": "medialunas.png",
+			"image": "Imagenes/medialunas.png",
 			"alt": "Medialunas",
 			"name": "Medialunas comunes",
 			"description": "Las mejores medialunas de la ciudad.",
 			"price": "1 · $1500"
 		},
 		{
-			"image": "",
-			"alt": "Sin imagen",
-			"name": "Card vacia",
+			"image": "Imagenes/medialunasCrema.webp",
+			"alt": "Medialunas Crema",
+			"name": "Medialunas rellenas crema pastelera",
 			"description": "",
-			"price": "1kg · $15000"
+			"price": "1 · $1500"
+		},
+		{
+			"image": "Imagenes/medialunasddl.webp",
+			"alt": "Medialunas DDL",
+			"name": "Medialunas rellenas dulce de leche",
+			"description": "",
+			"price": "1 · $1500"
 		}
+
 	],
 	"panes": [
 		{
-			"image": "PanFrances.png",
+			"image": "Imagenes/PanFrances.png",
 			"alt": "Panes",
-			"name": "Pan Frances",
+			"name": "Pan Frances x kg",
 			"description": "Tira de pan frances",
-			"price": "1kg · $2000"
+			"price": "1 · $2000"
 		},
 		{
-			"image": "",
-			"alt": "Sin imagen",
-			"name": "Card vacia",
+			"image": "Imagenes/milonguitaSalvado.webp",
+			"alt": "Milonguita Salvado",
+			"name": "Milonguita Salvado x kg",
 			"description": "",
-			"price": "1kg · $15000"
+			"price": "1 · $1500"
+		},
+		{
+			"image": "Imagenes/milonguitaBlanco.webp",
+			"alt": "Milonguita Blanco",
+			"name": "Milonguita Blanco x kg",
+			"description": "",
+			"price": "1 · $1500"
 		}
 	]
 }

@@ -40,12 +40,17 @@ function ShowAddModal() {
 			<div class="add-modal-body">
 				<p class="add-modal-item"></p>
 				<p class="add-modal-qty"></p>
+				<button type="button" class="go-to-cart-button">Go to Cart</button>
 			</div>
 		</div>
 	`;
 	document.body.appendChild(modal);
 	const closeButton = modal.querySelector('.add-modal-close');
+	const goToCartButton = modal.querySelector('.go-to-cart-button');
 	closeButton.addEventListener('click', () => hideAddModal());
+	goToCartButton.addEventListener('click', () => {
+		window.location.href = 'cart.html';
+	});
 	modal.addEventListener('click', (event) => {
 		if (event.target === modal) hideAddModal();
 	});
@@ -58,8 +63,8 @@ function showAddModal(itemName, quantity) {
 	const itemEl = modal.querySelector('.add-modal-item');
 	const qtyEl = modal.querySelector('.add-modal-qty');
 
-	itemEl.textContent = `Item: ${itemName}`;
-	qtyEl.textContent = `Quantity: ${quantity}`;
+	itemEl.textContent = `${itemName}`;
+	qtyEl.textContent = `Unidades: ${quantity}`;
 
 	modal.classList.remove('hidden');
 }
@@ -70,6 +75,8 @@ function hideAddModal() {
 
 	modal.classList.add('hidden');
 }
+
+
 
 function wireAddButtons() {
 	const container = document.getElementById('product-section-root');
@@ -86,7 +93,23 @@ function wireAddButtons() {
 		const qtyEl = card.querySelector('.qty-select');
 		if (!nameEl || !qtyEl) return;
 
-		showAddModal(nameEl.textContent.trim(), qtyEl.value);
+		const itemName = nameEl.textContent.trim();
+		const quantity = Number.parseInt(qtyEl.value, 10);
+		const imageEl = card.querySelector('.thumbnail');
+		const descriptionEl = card.querySelector('.product-description');
+		const priceEl = card.querySelector('.precio');
+		const metadata = {
+			image: imageEl ? imageEl.getAttribute('src') || '' : '',
+			alt: imageEl ? imageEl.getAttribute('alt') || itemName : itemName,
+			description: descriptionEl ? descriptionEl.textContent.trim() : '',
+			price: priceEl ? priceEl.textContent.trim() : ''
+		};
+
+		if (window.CartState && typeof window.CartState.addItem === 'function') {
+			window.CartState.addItem(itemName, quantity, metadata);
+		}
+
+		showAddModal(itemName, quantity);
 	});
 }
 
