@@ -1,11 +1,63 @@
+const FAVORITES_STORAGE_KEY = 'favorites';
+
+function readFavorites() {
+	try {
+		const storedValue = localStorage.getItem(FAVORITES_STORAGE_KEY);
+		if (!storedValue) return [];
+
+		const parsedItems = JSON.parse(storedValue);
+		if (!Array.isArray(parsedItems)) return [];
+
+		return parsedItems.filter((item) => item && typeof item.name === 'string');
+	} catch (error) {
+		console.error(error);
+		return [];
+	}
+}
+
+function saveFavorites(items) {
+	localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(items));
+}
+
+function isFavorite(productName) {
+	return readFavorites().some((item) => item.name === productName);
+}
+
+function toggleFavorite(product) {
+	const favorites = readFavorites();
+	const index = favorites.findIndex((item) => item.name === product.name);
+
+	if (index >= 0) {
+		favorites.splice(index, 1);
+		saveFavorites(favorites);
+		return false;
+	}
+
+	favorites.push({
+		name: product.name,
+		image: product.image || '',
+		alt: product.alt || product.name,
+		description: product.description || '',
+		price: product.price || ''
+	});
+	saveFavorites(favorites);
+	return true;
+}
+
 function createProductCard(product) {
-	const imageMarkup = product.image
+	const favoriteClass = isFavorite(product.name) ? ' is-favorite' : '';
+	const imageInner = product.image
 		? `<img class="thumbnail" src="${product.image}" alt="${product.alt}">`
-		: '<div class="image-container"></div>';
+		: '';
 
 	return `
 		<div class="product-card">
-			${imageMarkup}
+			<div class="image-container">
+				${imageInner}
+				<button type="button" class="favorite-button${favoriteClass}" aria-label="Toggle favorite" aria-pressed="${isFavorite(product.name)}" data-product-name="${product.name}">
+					<img src="favorites.svg" alt="Favorite icon">
+				</button>
+			</div>
 			<p class="product-name">${product.name}</p>
 			<p class="product-description">${product.description}</p>
 			<div class="product-actions-row">
@@ -83,6 +135,38 @@ function wireAddButtons() {
 	if (!container) return;
 
 	container.addEventListener('click', (event) => {
+		const favoriteButton = event.target.closest('.favorite-button');
+		if (favoriteButton) {
+			const card = favoriteButton.closest('.product-card');
+			if (!card) return;
+
+			const nameEl = card.querySelector('.product-name');
+			const imageEl = card.querySelector('.thumbnail');
+			const descriptionEl = card.querySelector('.product-description');
+			const priceEl = card.querySelector('.precio');
+			if (!nameEl) return;
+
+			const product = {
+				name: nameEl.textContent.trim(),
+				image: imageEl ? imageEl.getAttribute('src') || '' : '',
+				alt: imageEl ? imageEl.getAttribute('alt') || nameEl.textContent.trim() : nameEl.textContent.trim(),
+				description: descriptionEl ? descriptionEl.textContent.trim() : '',
+				price: priceEl ? priceEl.textContent.trim() : ''
+			};
+
+			const added = toggleFavorite(product);
+			favoriteButton.classList.toggle('is-favorite', added);
+			favoriteButton.setAttribute('aria-pressed', String(added));
+
+			if (added) {
+				favoriteButton.classList.remove('favorite-pop');
+				void favoriteButton.offsetWidth;
+				favoriteButton.classList.add('favorite-pop');
+			}
+
+			return;
+		}
+
 		const addButton = event.target.closest('.add-button');
 		if (!addButton) return;
 

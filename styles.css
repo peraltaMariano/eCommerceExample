@@ -47,16 +47,18 @@ header ul a:hover {
     border-radius: 5px;
 }
 
-.cart-item {
+.favorites-item {
     margin-left: auto;
 }
 
+.favorites-item a,
 .cart-item a {
     display: flex;
     align-items: center;
     position: relative;
 }
 
+.favorites-item img,
 .cart-item img {
     width: 24px;
     height: 24px;
@@ -208,12 +210,64 @@ header ul a:hover {
     width: 100%;
     height: 180px;
     overflow: hidden;
+    position: relative;
 }
 .thumbnail {
     width: 100%;
     height: 180px;
     object-fit: cover;
     display: block;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.favorite-button img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) saturate(0) opacity(0.45);
+    transition: filter 0.2s ease;
+}
+
+.favorite-button:hover {
+    transform: scale(1.08);
+}
+
+.favorite-button.is-favorite {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.favorite-button.is-favorite img {
+    filter: brightness(0) saturate(0) opacity(1);
+}
+
+.favorite-button.favorite-pop {
+    animation: favorite-pop 0.28s ease;
+}
+
+@keyframes favorite-pop {
+    0% {
+        transform: scale(1);
+    }
+    55% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .product-card p {
@@ -483,6 +537,26 @@ header ul a:hover {
 }
 
 .cart-empty {
+    color: #666;
+    font-size: 18px;
+}
+
+.favorites-page {
+    max-width: 960px;
+    padding: 0 30px;
+}
+
+.favorites-title {
+    margin: 20px 0;
+}
+
+.favorites-items-root {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.favorites-empty {
     color: #666;
     font-size: 18px;
 }

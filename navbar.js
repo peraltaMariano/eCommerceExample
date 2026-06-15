@@ -162,6 +162,13 @@ async function renderNavbar() {
 		const linksMarkup = (navbarData.links || [])
 			.map((link) => `<li><a href="${link.href}">${link.label}</a></li>`)
 			.join('');
+		const favoritesMarkup = `
+			<li class="favorites-item">
+				<a href="favoritos.html" aria-label="Favorites">
+					<img src="favorites.svg" alt="Favorites">
+				</a>
+			</li>
+		`;
 		const cartMarkup = `
 			<li class="cart-item">
 				<a href="cart.html" aria-label="Cart">
@@ -181,6 +188,7 @@ async function renderNavbar() {
 	<nav>
 		<ul>
 			${linksMarkup}
+			${favoritesMarkup}
 			${cartMarkup}
 		</ul>
 	</nav>
