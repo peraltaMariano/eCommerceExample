@@ -1,6 +1,6 @@
 {
 	"brand": {
-		"logo": "Imagenes/logo.jpg",
+		"logo": "../Imagenes/logo.jpg",
 		"logoAlt": "El Panadero Logo",
 		"title": "El Panadero"
 		
@@ -9,19 +9,19 @@
 
 		{
 			"label": "Criollitos",
-			"href": "Categorias/criollitos.html"
+			"href": "../Categorias/criollitos.html"
 		},
 		{
 			"label": "Medialunas",
-			"href": "Categorias/medialunas.html"
+			"href": "../Categorias/medialunas.html"
 		},
 		{
 			"label": "Panes",
-			"href": "Categorias/panes.html"
+			"href": "../Categorias/panes.html"
 		},
 		{
 			"label": "Login",
-			"href": "Login/login.html"
+			"href": "../Login/login.html"
 		}
 	]
 }

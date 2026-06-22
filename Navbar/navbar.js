@@ -11,7 +11,7 @@ function getRoutePrefix() {
 
 function toProjectPath(path) {
 	const prefix = getRoutePrefix();
-	const normalizedPath = String(path || '').replace(/^\.?\//, '');
+	const normalizedPath = String(path || '').replace(/^((\.\.\/)|(\.\/))+/, '');
 	return `${prefix}${normalizedPath}`;
 }
 
@@ -247,7 +247,7 @@ async function renderNavbar() {
 		navbarRoot.innerHTML = `
 <header>
 	<div class="logo-section">
-		<a class="logo-home-link" href="${toProjectPath('Home/index.html')}" aria-label="Ir al inicio">
+		<a class="logo-home-link" href="${toProjectPath('index.html')}" aria-label="Ir al inicio">
 			<img src="${toProjectPath(navbarData.brand.logo)}" alt="${navbarData.brand.logoAlt}">
 			<h1>${navbarData.brand.title}</h1>
 		</a>
