@@ -1,0 +1,30 @@
+.favorites-page {
+    max-width: 960px;
+    padding: 0 30px;
+}
+
+.favorites-title {
+    margin: 20px 0;
+}
+
+.favorites-items-root {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.favorites-empty {
+    color: #666;
+    font-size: 18px;
+}
+@keyframes favorite-pop {
+    0% {
+        transform: scale(1);
+    }
+    55% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
